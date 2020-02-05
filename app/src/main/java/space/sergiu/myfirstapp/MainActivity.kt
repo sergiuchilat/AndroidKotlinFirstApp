@@ -11,29 +11,36 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        decreaseCounterBtn.setOnClickListener { decreaseValue() }
+        setEventListeners()
     }
 
-    fun decreaseValue(){
+    private fun decreaseValue(){
         var count:Int = Integer.parseInt(counterTextView.text.toString())
         count--
         counterTextView.text = count.toString()
     }
 
-    fun increaseValue(view: View){
+    private fun increaseValue(){
         var count:Int = Integer.parseInt(counterTextView.text.toString())
         count++
         counterTextView.text = count.toString()
     }
 
-    fun resetValue(view: View){
+    private fun resetValue(){
         counterTextView.text = 0.toString()
     }
 
-    fun gotoScreen2(view: View){
+    private fun gotoScreen2(){
         val secondScreenIntent = Intent(this, Screen2::class.java)
         val counterValue = Integer.parseInt(counterTextView.text.toString())
         secondScreenIntent.putExtra(Screen2.COUNTER_FIELD_NAME, counterValue)
         startActivity(secondScreenIntent)
+    }
+
+    private fun setEventListeners(){
+        decreaseCounterBtn.setOnClickListener { decreaseValue() }
+        increaseCounterBtn.setOnClickListener { increaseValue() }
+        resetCounterBtn.setOnClickListener { resetValue() }
+        gotoScreen2Btn.setOnClickListener { gotoScreen2() }
     }
 }
