@@ -3,8 +3,6 @@ package space.sergiu.myfirstapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_screen2.*
 
 class Screen2 : AppCompatActivity() {
@@ -12,6 +10,9 @@ class Screen2 : AppCompatActivity() {
     companion object{
         const val COUNTER_FIELD_NAME = ""
     }
+
+    val x:Int = 0
+    val y:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
