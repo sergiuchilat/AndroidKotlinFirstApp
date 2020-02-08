@@ -3,14 +3,26 @@ package space.sergiu.myfirstapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import space.sergiu.myfirstapp.DC.UserData
+import space.sergiu.myfirstapp.databinding.ActivityMainBinding
+import space.sergiu.myfirstapp.viewmodels.UserViewModel
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setEventListeners()
+        //setContentView(R.layout.activity_main)
+        //setEventListeners()
+
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(
+            this, R.layout.activity_main
+        )
+        binding.lifecycleOwner = this
+        binding.viewModel = UserViewModel(UserData("Ion", 35))
+
     }
 
     private fun decreaseValue(){
