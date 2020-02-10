@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_main
         )
+        binding.viewModel = UserViewModel()
         binding.lifecycleOwner = this
-        binding.viewModel = UserViewModel(UserData("Ion", 35))
 
     }
 
